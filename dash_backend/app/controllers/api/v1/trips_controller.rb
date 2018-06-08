@@ -1,26 +1,40 @@
-class Api::V1::TripsController < Api::V1::BaseController
+
+ class Api::V1::TripsController < ApplicationController
 
   def index
-    respond_with Trip.all
+    if (valid_token?)
+      render json: Trip.all
+    else
+      render json: { go_away: true }, status: :unauthorized
+    end
   end
 
-  def create
-    respond_with :api, :v1, Trip.create(trip_params)
-  end
+end
 
-  def destroy
-     respond_with Trip.destroy(params[:id])
-   end
 
-   def update
-     trip = Trip.find(params["id"])
-     trip.update_attributes(trip_params)
-     respond_with trip, json: trip
-   end
-
-   private
-
-   def trip_params
-     params.require(:trip).permit(:user_id, :id, :name, :origin, :destination)
-   end
- end
+# class Api::V1::TripsController < ApplicationController
+#
+#   def index
+#     render json: Trip.all
+#   end
+#
+#   def create
+#     render json: Trip.create(trip_params)
+#   end
+#
+#   def destroy
+#      render json: Trip.destroy(params[:id])
+#    end
+#
+#    def update
+#      trip = Trip.find(params["id"])
+#      trip.update_attributes(trip_params)
+#      render json: trip
+#    end
+#
+#    private
+#
+#    def trip_params
+#      params.require(:trip).permit(:user_id, :id, :name, :origin, :destination)
+#    end
+#  end
