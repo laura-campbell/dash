@@ -7,6 +7,7 @@ class CreateTrips < ActiveRecord::Migration[5.1]
       t.string :destination
       t.date :departure_date
       t.date :return_date
+      t.string :slug
       t.timestamps
     end
   end

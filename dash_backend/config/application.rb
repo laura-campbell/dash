@@ -11,7 +11,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
-require "rails/test_unit/railtie"
+# require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,9 +21,9 @@ module DashBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-
-    config.autoload_paths << Rails.root.join('lib')
     config.api_only = true
+
+    # config.autoload_paths << Rails.root.join('lib')
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
