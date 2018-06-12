@@ -17,9 +17,16 @@ ActiveRecord::Schema.define(version: 20180604190156) do
     t.string "name"
     t.string "origin"
     t.string "destination"
-    t.date "departure_date"
-    t.date "return_date"
-    t.string "slug"
+    t.string "outboundDepartureCity"
+    t.string "outboundArrivalCity"
+    t.string "outboundDepartureDate"
+    t.string "outboundAirline"
+    t.string "outboundDepartureTime"
+    t.string "returnDepartureCity"
+    t.string "returnArrivalCity"
+    t.string "returnDepartureDate"
+    t.string "returnAirline"
+    t.string "returnDepartureTime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

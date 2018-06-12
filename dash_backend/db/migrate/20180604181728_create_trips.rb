@@ -5,9 +5,16 @@ class CreateTrips < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :origin
       t.string :destination
-      t.date :departure_date
-      t.date :return_date
-      t.string :slug
+      t.string :outboundDepartureCity
+      t.string :outboundArrivalCity
+      t.string :outboundDepartureDate
+      t.string :outboundAirline
+      t.string :outboundDepartureTime
+      t.string :returnDepartureCity
+      t.string :returnArrivalCity
+      t.string :returnDepartureDate
+      t.string :returnAirline
+      t.string :returnDepartureTime
       t.timestamps
     end
   end

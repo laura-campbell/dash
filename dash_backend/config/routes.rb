@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         # get '/trips/', to: 'trips#index'
         #
         get '/users/:user_id/trips', to: 'users#users_trips'
+        post '/users/:user_id/trips', to: 'trips#create'
+
         # delete '/users/:user_id/trips/:users_trip_id', to: 'users#users_trips'
 
         # post '/users/', to: 'users#create'
