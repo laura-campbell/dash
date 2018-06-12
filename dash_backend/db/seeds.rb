@@ -11,4 +11,8 @@ User.create(first_name:"Laura", last_name: "Campbell", username:"lauraelizabethc
 User.create(first_name:"Carolyn", last_name: "Campbell", username:
 "carolynmichelle", email: "ccampbell@gmail.com", password: "threedegrees")
 
-Trip.create(user_id: 1, name: "Summer 2018", origin: "NYC", destination: "LA", departure_date: '2018-06-29', return_date: '2018-07-11', slug: 'first-trip-ever')
+Trip.create(user_id: 1, name: "Summer 2018", origin: "NYC", destination: "LA", departure_date: '2018-06-29', return_date: '2018-07-11', slug: 'summer-2018')
+
+Trip.create(user_id: 2, name: "South America 2018", origin: "SFO", destination: "MIA", departure_date: '2018-09-15', return_date: '2018-09-30', slug: 'south-america-2018')
+
+Trip.create(user_id: 1, name: "Iceland 2018", origin: "LAX", destination: "JFK", departure_date: '2018-08-10', return_date: '2018-08-15', slug: 'iceland-2018')
