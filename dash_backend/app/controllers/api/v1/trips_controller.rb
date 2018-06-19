@@ -6,8 +6,14 @@ class Api::V1::TripsController < ApplicationController
    end
 
    def show
-     @trip = Trip.find_by(params[:id])
+     @trip = Trip.find(params[:id])
      render json: @trip
+   end
+
+   def trip_flights
+     @trip = Trip.find(params[:trip_id])
+     @trip_flights = Flight.all.select{ |flight| flight[:trip_id] == @trip.id }
+     render json: @trip_flights
    end
 
    def create
@@ -17,11 +23,14 @@ class Api::V1::TripsController < ApplicationController
    end
 
    def update
+     @trip = Trip.find(params[:trip_id])
+     @trip.update(trip_params)
+     render json: @trip
    end
 
 private
 
   def trip_params
-    params.require(:trip).permit(:user_id,  :name,  :origin, :destination, :outboundDepartureCity, :outboundArrivalCity, :outboundDepartureDate, :outboundAirline, :outboundDepartureTime, :returnDepartureCity, :returnArrivalCity, :returnDepartureDate, :returnAirline, :returnDepartureTime)
+    params.require(:trip).permit(:user_id,  :name,  :start_date, :end_date)
   end
  end
