@@ -15,8 +15,9 @@ Rails.application.routes.draw do
         # delete '/users/:user_id/trips/:users_trip_id', to: 'users#users_trips'
 
         # post '/users/', to: 'users#create'
-        post '/login/', to: 'authentication#create'
+        post '/login/', to: 'authentication#login'
         get '/current_user', to: 'authentication#show'
+        post '/signup', to: 'authentication#signup'
 
     end
   end
