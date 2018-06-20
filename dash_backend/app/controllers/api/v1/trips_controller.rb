@@ -23,8 +23,14 @@ class Api::V1::TripsController < ApplicationController
    end
 
    def update
-     @trip = Trip.find(params[:trip_id])
+     @trip = Trip.find(params[:id])
      @trip.update(trip_params)
+     render json: @trip
+   end
+
+   def destroy
+     @trip = Trip.find(params[:id])
+     @trip.destroy
      render json: @trip
    end
 

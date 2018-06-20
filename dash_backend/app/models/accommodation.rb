@@ -1,2 +1,0 @@
-class Accommodation < ApplicationRecord
-end
