@@ -11,13 +11,12 @@ Rails.application.routes.draw do
         get '/flights', to: 'flights#index'
         get '/trips/:id/flights/:id', to: 'flights#show'
         get '/trips/:id', to: 'trips#show'
-
-        # delete '/users/:user_id/trips/:users_trip_id', to: 'users#users_trips'
-
+        delete '/trips/:id/delete', to: 'trips#destroy'
         # post '/users/', to: 'users#create'
         post '/login/', to: 'authentication#login'
         get '/current_user', to: 'authentication#show'
         post '/signup', to: 'authentication#signup'
+        post '/trips/:id/itinerary', to: 'days#create'
 
     end
   end
