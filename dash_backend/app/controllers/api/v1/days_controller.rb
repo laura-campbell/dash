@@ -15,9 +15,15 @@ class Api::V1::DaysController < ApplicationController
     render json: @day
   end
 
+  def trip_days
+    @trip = Trip.find(params[:trip_id])
+    @trip_days = Day.all.select{ |day| day[:trip_id] == @trip.id }
+    render json: @trip_days
+  end
+
 private
 
   def day_params
-    params.require(:day).permit(:trip_id, :day, :description)
+    params.require(:day).permit(:trip_id, :daystring, :description)
   end
 end
