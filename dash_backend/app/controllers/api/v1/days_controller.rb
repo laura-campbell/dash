@@ -11,7 +11,7 @@ class Api::V1::DaysController < ApplicationController
   end
 
   def create
-    @day = Day.create(day_params)
+    @day = Day.find_or_create_by(day_params)
     render json: @day
   end
 
@@ -24,6 +24,6 @@ class Api::V1::DaysController < ApplicationController
 private
 
   def day_params
-    params.require(:day).permit(:trip_id, :daystring, :description)
+    params.require(:day).permit(:trip_id, :daystring)
   end
 end
