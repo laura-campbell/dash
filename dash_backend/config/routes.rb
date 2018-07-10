@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-        # get '/trips/', to: 'trips#index'
-        #
         get '/users/:user_id/trips', to: 'users#users_trips'
         get '/trips/:trip_id/flights', to: 'trips#trip_flights'
         post '/users/:user_id/trips', to: 'trips#create'
@@ -13,11 +11,16 @@ Rails.application.routes.draw do
         get '/trips/:id', to: 'trips#show'
         delete '/trips/:id/delete', to: 'trips#destroy'
         # post '/users/', to: 'users#create'
+        patch '/users/:user_id/trips', to: 'trips#update'
         post '/login/', to: 'authentication#login'
         get '/current_user', to: 'authentication#show'
         post '/signup', to: 'authentication#signup'
-        post '/trips/:id/itinerary', to: 'days#create'
-
+        post '/trips/:trip_id/days', to: 'days#create'
+        get '/trips/:trip_id/days', to: 'days#trip_days'
+        post '/trips/:trip_id/packinglist', to: 'packing_list#create'
+        get '/trips/:trip_id/packinglist', to: 'packing_list#trip_items'
+        post '/days/:day_id/events', to: 'events#create'
+        get '/days/:day_id/events', to: 'events#day_events'
     end
   end
 end
