@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         get '/trips/:trip_id/packinglist', to: 'packing_list#trip_items'
         post '/days/:day_id/events', to: 'events#create'
         get '/days/:day_id/events', to: 'events#day_events'
+        get '/days/:id', to: 'days#show'
+
     end
   end
 end
