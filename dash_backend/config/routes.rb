@@ -18,9 +18,12 @@ Rails.application.routes.draw do
         post '/trips/:trip_id/days', to: 'days#create'
         get '/trips/:trip_id/days', to: 'days#trip_days'
         post '/trips/:trip_id/packinglist', to: 'packing_list#create'
+        delete '/trips/:trip_id/packinglist/:id/delete', to: 'packing_list#destroy'
         get '/trips/:trip_id/packinglist', to: 'packing_list#trip_items'
         post '/days/:day_id/events', to: 'events#create'
         get '/days/:day_id/events', to: 'events#day_events'
+        get '/days/:id', to: 'days#show'
+
     end
   end
 end
