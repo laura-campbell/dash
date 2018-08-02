@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180709184936) do
   create_table "days", force: :cascade do |t|
     t.integer "trip_id"
     t.string "daystring"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
