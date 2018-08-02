@@ -21,6 +21,12 @@ class Api::V1::PackingListController < ApplicationController
     render json: @trip_items
   end
 
+  def destroy
+    @item = PackingList.find(params[:id])
+    @item.destroy
+    render json: @item
+  end
+
 private
 
   def packinglist_params
